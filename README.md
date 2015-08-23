@@ -7,7 +7,7 @@ Appropriately labels the data set with descriptive variable names.
 From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 
-#How to reproduce tidy data set
+#How to reproduce the tidy data set
 clone this repository: git clone https://github.com/ayine17/datacleaning/blob/master/run_analysis.R
 download compressed raw data from:
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
