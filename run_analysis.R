@@ -5,7 +5,8 @@ require("plyr")
 #Merges the training and the test sets to create one data set.
 #Uses descriptive activity names to name the activities in the data set
 
-#From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+#From the data set in step 4, creates a second, independent tidy data set with the 
+#average of each variable for each activity and each subject.
 
 setwd("~/rprog_data_ProgAssignment3-data/Cleaning Data/UCI HAR Dataset")
 
@@ -19,7 +20,7 @@ train_y <- read.table("train/y_train.txt", header= FALSE)
 test_y <- read.table("test/y_test.txt", header= FALSE)
 
 combineX <- rbind(train_X,test_X)
-combineX <- rbind(train_y,test_y)
+combineY <- rbind(train_y,test_y)
 activity_labels<-read.table("activity_labels.txt", header=FALSE)
 activity <- merge(activity_labels,combineY)
 subject <- rbind(train_subject,test_subject)
@@ -35,7 +36,7 @@ colnames(subject) <- "subject"
 
 combin_features <- combineX[grepl("mean\\(\\)|std\\(\\)",names(combineX))]
 
-  <- cbind(activity[2],subject,combin_features)
+allcombineddata<- cbind(activity[2],subject,combin_features)
 
 #Appropriately labels the data set with descriptive variable names. 
 
@@ -48,15 +49,15 @@ rename_allcombined<- gsub("-", "", rename_allcombined, ignore.case = TRUE)
 rename_allcombined<- gsub("\\()", "", rename_allcombined, ignore.case = TRUE)
 
 rename_allcombined<- gsub("\\)", "",
-                rename_allcombined, ignore.case = TRUE)
+                          rename_allcombined, ignore.case = TRUE)
 rename_allcombined<- gsub("\\(", "",
-                rename_allcombined, ignore.case = TRUE)
+                          rename_allcombined, ignore.case = TRUE)
 
 rename_allcombined<- gsub("^angleX,gravityMean", "gravityMeanangleX",rename_allcombined, ignore.case = TRUE)
 rename_allcombined<- gsub("angleY,gravityMean", "gravityMeanangleY",
                           rename_allcombined, ignore.case = TRUE)
 rename_allcombined<- gsub("angleZ,gravityMean", "gravityMeanangleZ",
-                rename_allcombined, ignore.case = TRUE)
+                          rename_allcombined, ignore.case = TRUE)
 rename_allcombined<-gsub("Acc", "Accelerometer", rename_allcombined)
 
 colnames(allcombineddata) <- rename_allcombined
