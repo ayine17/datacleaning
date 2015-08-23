@@ -1,4 +1,4 @@
-# Introduction
+# Instruction
 You should create one R script called run_analysis.R that does the following.
 Merges the training and the test sets to create one data set.
 Extracts only the measurements on the mean and standard deviation for each measurement. 
@@ -14,5 +14,5 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 unzip raw data and copy the directory UCI HAR Dataset to the cloned repository root directory
 open a R console and set the working directory to the repository root (use setwd())
 install plyr and dplyr package
-source run_analisys.R script iit: 
+source run_analisys.R script it: 
 source('run_analysis.R')
